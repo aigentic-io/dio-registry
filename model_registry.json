@@ -1,0 +1,267 @@
+{
+    "metadata": {
+        "version": "1.0.0",
+        "last_updated": "2026-03-13T14:11:00Z"
+    },
+    "models": {
+        "spec_model": {
+            "api_name": "gemini_dummy",
+            "vendor": "google",
+            "platform": "google",
+            "versions": [
+                "2024-11-20",
+                "2025-10-10"
+            ],
+            "release_date": "2024-11-20",
+            "deprecation_date": null,
+            "supported_regions": [
+                "global"
+            ],
+            "limitations": {
+                "context_window": 128000,
+                "max_output_tokens": 16384
+            },
+            "capabilities": [
+                "text",
+                "image",
+                "function_calling",
+                "parallel_function_calling",
+                "structured_outputs",
+                "video",
+                "audio"
+            ],
+            "pricing": {
+                "pricing_plans": [
+                    {
+                        "currency": "USD",
+                        "modality": [
+                            "text",
+                            "image"
+                        ],
+                        "tooling": [
+                            "google_search",
+                            "google_map"
+                        ],
+                        "base": {
+                            "tier": 0,
+                            "tier_name": "standard",
+                            "unit": "per_1m_tokens",
+                            "context_ceiling": 128000,
+                            "input": 2.5,
+                            "output": 10
+                        },
+                        "caching": {
+                            "unit": "per_1m_tokens",
+                            "creation": 2.5,
+                            "read": 1.25,
+                            "storage": {
+                                "unit": "per_1m_token_per_hour",
+                                "cost": 1
+                            }
+                        },
+                        "tiered_overrides": [
+                            {
+                                "tier": 1,
+                                "tier_name": "extended",
+                                "context_ceiling": 128000,
+                                "unit": "per_1m_tokens",
+                                "input": 2.5,
+                                "output": 10,
+                                "caching": {
+                                    "unit": "per_1m_tokens",
+                                    "creation": 2.5,
+                                    "read": 1.25,
+                                    "storage": {
+                                        "unit": "per_1m_token_per_hour",
+                                        "cost": 1
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        },
+        "gemini-2.0-flash": {
+            "api_name": "gemini-2.0-flash",
+            "vendor": "google",
+            "platform": "google_ai_studio",
+            "versions": ["2025-02-05"],
+            "release_date": "2025-02-05",
+            "deprecation_date": "2026-06-01",
+            "supported_regions": ["global"],
+            "limitations": {
+                "context_window": 1048576,
+                "max_output_tokens": 8192
+            },
+            "capabilities": [
+                "text",
+                "image",
+                "video",
+                "audio",
+                "function_calling",
+                "parallel_function_calling",
+                "structured_outputs",
+                "prompt_caching"
+            ],
+            "pricing": {
+                "pricing_plans": [
+                    {
+                        "plan_name": "multimodal",
+                        "currency": "USD",
+                        "modality": ["text", "image", "video", "audio"],
+                        "base": {
+                            "tier": 0,
+                            "tier_name": "standard",
+                            "unit": "per_1m_tokens",
+                            "input": 0.10,
+                            "output": 0.40
+                        },
+                        "caching": {
+                            "unit": "per_1m_tokens",
+                            "creation": 0.10,
+                            "read": 0.025,
+                            "storage": {
+                                "unit": "per_1m_token_per_hour",
+                                "cost": 1.00
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "gemini-2.0-flash-lite": {
+            "api_name": "gemini-2.0-flash-lite",
+            "vendor": "google",
+            "platform": "google_ai_studio",
+            "versions": ["2025-02-25"],
+            "release_date": "2025-02-25",
+            "deprecation_date": "2026-06-01",
+            "supported_regions": ["global"],
+            "limitations": {
+                "context_window": 1048576,
+                "max_output_tokens": 8192
+            },
+            "capabilities": [
+                "text",
+                "image",
+                "video",
+                "audio",
+                "function_calling",
+                "structured_outputs",
+                "prompt_caching"
+            ],
+            "pricing": {
+                "pricing_plans": [
+                    {
+                        "plan_name": "multimodal",
+                        "currency": "USD",
+                        "modality": ["text", "image", "video", "audio"],
+                        "base": {
+                            "tier": 0,
+                            "tier_name": "standard",
+                            "unit": "per_1m_tokens",
+                            "input": 0.075,
+                            "output": 0.30
+                        },
+                        "caching": {
+                            "unit": "per_1m_tokens",
+                            "creation": 0.0833,
+                            "read": 0.03,
+                            "storage": {
+                                "unit": "per_1m_token_per_hour",
+                                "cost": 1.00
+                            }
+                        }
+                    }
+                ]
+            }
+        },
+        "gpt-4o": {
+            "api_name": "gpt-4o",
+            "vendor": "openai",
+            "platform": "openai",
+            "versions": ["2024-05-13", "2024-08-06"],
+            "release_date": "2024-05-13",
+            "deprecation_date": null,
+            "supported_regions": ["global"],
+            "limitations": {
+                "context_window": 128000,
+                "max_output_tokens": 16384
+            },
+            "capabilities": [
+                "text",
+                "image",
+                "function_calling",
+                "parallel_function_calling",
+                "structured_outputs",
+                "prompt_caching"
+            ],
+            "pricing": {
+                "pricing_plans": [
+                    {
+                        "plan_name": "text_and_vision",
+                        "currency": "USD",
+                        "modality": ["text", "image"],
+                        "base": {
+                            "tier": 0,
+                            "tier_name": "standard",
+                            "unit": "per_1m_tokens",
+                            "input": 2.50,
+                            "output": 10.00
+                        },
+                        "caching": {
+                            "unit": "per_1m_tokens",
+                            "creation": null,
+                            "read": 1.25,
+                            "storage": null
+                        }
+                    }
+                ]
+            }
+        },
+        "gpt-4o-mini": {
+            "api_name": "gpt-4o-mini",
+            "vendor": "openai",
+            "platform": "openai",
+            "versions": ["2024-07-18"],
+            "release_date": "2024-07-18",
+            "deprecation_date": null,
+            "supported_regions": ["global"],
+            "limitations": {
+                "context_window": 128000,
+                "max_output_tokens": 16384
+            },
+            "capabilities": [
+                "text",
+                "image",
+                "function_calling",
+                "parallel_function_calling",
+                "structured_outputs",
+                "prompt_caching"
+            ],
+            "pricing": {
+                "pricing_plans": [
+                    {
+                        "plan_name": "text_and_vision",
+                        "currency": "USD",
+                        "modality": ["text", "image"],
+                        "base": {
+                            "tier": 0,
+                            "tier_name": "standard",
+                            "unit": "per_1m_tokens",
+                            "input": 0.15,
+                            "output": 0.60
+                        },
+                        "caching": {
+                            "unit": "per_1m_tokens",
+                            "creation": null,
+                            "read": 0.075,
+                            "storage": null
+                        }
+                    }
+                ]
+            }
+        }
+    }
+}

@@ -1,0 +1,151 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "DIO Model Registry Entry",
+    "description": "Schema for a single model entry in model_registry.json (spec_model excluded from validation)",
+    "type": "object",
+    "required": ["api_name", "vendor", "platform", "release_date", "limitations", "capabilities", "pricing"],
+    "additionalProperties": false,
+    "properties": {
+        "api_name": { "type": "string" },
+        "vendor": { "type": "string" },
+        "platform": { "type": "string" },
+        "versions": { "type": "array", "items": { "type": "string" } },
+        "release_date": { "type": "string", "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
+        "deprecation_date": { "type": ["string", "null"], "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}$" },
+        "supported_regions": { "type": "array", "items": { "type": "string" } },
+        "limitations": {
+            "type": "object",
+            "required": ["context_window", "max_output_tokens"],
+            "additionalProperties": false,
+            "properties": {
+                "context_window": { "type": "integer", "minimum": 1 },
+                "max_output_tokens": { "type": "integer", "minimum": 1 }
+            }
+        },
+        "capabilities": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+                "type": "string",
+                "enum": [
+                    "text", "image", "video", "audio",
+                    "function_calling", "parallel_function_calling",
+                    "structured_outputs", "prompt_caching", "web_search",
+                    "code_execution", "grounding"
+                ]
+            }
+        },
+        "pricing": {
+            "type": "object",
+            "required": ["pricing_plans"],
+            "additionalProperties": false,
+            "properties": {
+                "pricing_plans": {
+                    "type": "array",
+                    "minItems": 1,
+                    "items": {
+                        "type": "object",
+                        "required": ["currency", "modality", "base"],
+                        "additionalProperties": false,
+                        "properties": {
+                            "plan_name": { "type": "string" },
+                            "currency": { "type": "string", "enum": ["USD"] },
+                            "modality": {
+                                "type": "array",
+                                "minItems": 1,
+                                "items": { "type": "string" }
+                            },
+                            "base": {
+                                "type": "object",
+                                "required": ["tier", "tier_name", "unit", "input", "output"],
+                                "additionalProperties": false,
+                                "properties": {
+                                    "tier": { "type": "integer", "const": 0 },
+                                    "tier_name": { "type": "string" },
+                                    "unit": { "type": "string" },
+                                    "context_ceiling": { "type": ["integer", "null"] },
+                                    "input": { "type": "number", "minimum": 0 },
+                                    "output": { "type": "number", "minimum": 0 }
+                                }
+                            },
+                            "caching": {
+                                "oneOf": [
+                                    { "type": "null" },
+                                    {
+                                        "type": "object",
+                                        "required": ["unit"],
+                                        "additionalProperties": false,
+                                        "properties": {
+                                            "unit": { "type": "string" },
+                                            "creation": { "type": ["number", "null"], "minimum": 0 },
+                                            "read": { "type": ["number", "null"], "minimum": 0 },
+                                            "storage": {
+                                                "oneOf": [
+                                                    { "type": "null" },
+                                                    {
+                                                        "type": "object",
+                                                        "required": ["unit", "cost"],
+                                                        "additionalProperties": false,
+                                                        "properties": {
+                                                            "unit": { "type": "string" },
+                                                            "cost": { "type": "number", "minimum": 0 }
+                                                        }
+                                                    }
+                                                ]
+                                            }
+                                        }
+                                    }
+                                ]
+                            },
+                            "tiered_overrides": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "required": ["tier", "tier_name", "unit", "input", "output"],
+                                    "additionalProperties": false,
+                                    "properties": {
+                                        "tier": { "type": "integer", "minimum": 1 },
+                                        "tier_name": { "type": "string" },
+                                        "context_ceiling": { "type": ["integer", "null"] },
+                                        "unit": { "type": "string" },
+                                        "input": { "type": "number", "minimum": 0 },
+                                        "output": { "type": "number", "minimum": 0 },
+                                        "caching": {
+                                            "oneOf": [
+                                                { "type": "null" },
+                                                {
+                                                    "type": "object",
+                                                    "required": ["unit"],
+                                                    "additionalProperties": false,
+                                                    "properties": {
+                                                        "unit": { "type": "string" },
+                                                        "creation": { "type": ["number", "null"], "minimum": 0 },
+                                                        "read": { "type": ["number", "null"], "minimum": 0 },
+                                                        "storage": {
+                                                            "oneOf": [
+                                                                { "type": "null" },
+                                                                {
+                                                                    "type": "object",
+                                                                    "required": ["unit", "cost"],
+                                                                    "additionalProperties": false,
+                                                                    "properties": {
+                                                                        "unit": { "type": "string" },
+                                                                        "cost": { "type": "number", "minimum": 0 }
+                                                                    }
+                                                                }
+                                                            ]
+                                                        }
+                                                    }
+                                                }
+                                            ]
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
