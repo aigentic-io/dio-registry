@@ -1,7 +1,7 @@
 {
     "metadata": {
         "version": "1.0.0",
-        "last_updated": "2026-03-13T14:11:00Z"
+        "last_updated": "2026-03-16T00:00:00Z"
     },
     "models": {
         "spec_model": {
@@ -257,6 +257,134 @@
                             "unit": "per_1m_tokens",
                             "creation": null,
                             "read": 0.075,
+                            "storage": null
+                        }
+                    }
+                ]
+            }
+        },
+        "claude-3-5-haiku": {
+            "api_name": "claude-3-5-haiku-20241022",
+            "vendor": "anthropic",
+            "platform": "anthropic",
+            "versions": ["20241022"],
+            "release_date": "2024-10-22",
+            "deprecation_date": null,
+            "supported_regions": ["global"],
+            "limitations": {
+                "context_window": 200000,
+                "max_output_tokens": 8192
+            },
+            "capabilities": [
+                "text",
+                "image",
+                "function_calling",
+                "parallel_function_calling",
+                "structured_outputs",
+                "prompt_caching"
+            ],
+            "pricing": {
+                "pricing_plans": [
+                    {
+                        "plan_name": "text_and_vision",
+                        "currency": "USD",
+                        "modality": ["text", "image"],
+                        "base": {
+                            "tier": 0,
+                            "tier_name": "standard",
+                            "unit": "per_1m_tokens",
+                            "input": 0.80,
+                            "output": 4.00
+                        },
+                        "caching": {
+                            "unit": "per_1m_tokens",
+                            "creation": 1.00,
+                            "read": 0.08,
+                            "storage": null
+                        }
+                    }
+                ]
+            }
+        },
+        "claude-3-haiku": {
+            "api_name": "claude-3-haiku-20240307",
+            "vendor": "anthropic",
+            "platform": "anthropic",
+            "versions": ["20240307"],
+            "release_date": "2024-03-07",
+            "deprecation_date": null,
+            "supported_regions": ["global"],
+            "limitations": {
+                "context_window": 200000,
+                "max_output_tokens": 4096
+            },
+            "capabilities": [
+                "text",
+                "image",
+                "function_calling",
+                "prompt_caching"
+            ],
+            "pricing": {
+                "pricing_plans": [
+                    {
+                        "plan_name": "text_and_vision",
+                        "currency": "USD",
+                        "modality": ["text", "image"],
+                        "base": {
+                            "tier": 0,
+                            "tier_name": "standard",
+                            "unit": "per_1m_tokens",
+                            "input": 0.25,
+                            "output": 1.25
+                        },
+                        "caching": {
+                            "unit": "per_1m_tokens",
+                            "creation": 0.30,
+                            "read": 0.03,
+                            "storage": null
+                        }
+                    }
+                ]
+            }
+        },
+        "claude-opus-4": {
+            "api_name": "claude-opus-4-5-20250514",
+            "vendor": "anthropic",
+            "platform": "anthropic",
+            "versions": ["20250514"],
+            "release_date": "2025-05-14",
+            "deprecation_date": null,
+            "supported_regions": ["global"],
+            "limitations": {
+                "context_window": 200000,
+                "max_output_tokens": 32000
+            },
+            "capabilities": [
+                "text",
+                "image",
+                "function_calling",
+                "parallel_function_calling",
+                "structured_outputs",
+                "prompt_caching",
+                "extended_thinking"
+            ],
+            "pricing": {
+                "pricing_plans": [
+                    {
+                        "plan_name": "text_and_vision",
+                        "currency": "USD",
+                        "modality": ["text", "image"],
+                        "base": {
+                            "tier": 0,
+                            "tier_name": "standard",
+                            "unit": "per_1m_tokens",
+                            "input": 15.00,
+                            "output": 75.00
+                        },
+                        "caching": {
+                            "unit": "per_1m_tokens",
+                            "creation": 18.75,
+                            "read": 1.50,
                             "storage": null
                         }
                     }

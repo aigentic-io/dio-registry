@@ -28,10 +28,10 @@
             "items": {
                 "type": "string",
                 "enum": [
-                    "text", "image", "video", "audio",
-                    "function_calling", "parallel_function_calling",
-                    "structured_outputs", "prompt_caching", "web_search",
-                    "code_execution", "grounding"
+                    "audio", "code_execution", "extended_thinking",
+                    "function_calling", "grounding", "image",
+                    "parallel_function_calling", "prompt_caching",
+                    "structured_outputs", "text", "video", "web_search"
                 ]
             }
         },
